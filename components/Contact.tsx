@@ -1,5 +1,6 @@
 import { sections } from "@/constants";
 import React from "react";
+import ContactForm from "./ContactForm";
 
 const Contact = () => {
   return (
@@ -26,28 +27,7 @@ const Contact = () => {
             .
           </p>
 
-          <form className="space-y-4">
-            <input
-              type="text"
-              placeholder="Imię i nazwisko"
-              className="w-full border border-gray-300 rounded px-4 py-2 outline-gray-950"
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              className="w-full border border-gray-300 rounded px-4 py-2 outline-gray-950"
-            />
-            <textarea
-              placeholder="Wiadomość"
-              className="w-full border border-gray-300 rounded px-4 py-2 h-32 outline-gray-950"
-            />
-            <button
-              type="submit"
-              className="bg-black text-white px-6 py-2 rounded hover:bg-gray-800"
-            >
-              Wyślij wiadomość
-            </button>
-          </form>
+          <ContactForm />
         </div>
 
         <div className="space-y-6">
