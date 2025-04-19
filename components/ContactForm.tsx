@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { sendEmail } from "@/utils/send-email";
 import AlertDialog from "./AlertDialog";
 import { LoaderCircle } from "lucide-react";
 
@@ -59,7 +58,18 @@ const ContactForm = () => {
     }
     try {
       setIsLoading(true);
-      await sendEmail(formData);
+      const res = await fetch("/api/email", {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) {
+        if (localStorage.getItem("debug") === "true") {
+          const error = await res.json();
+          console.error("Error response:", error);
+        }
+        throw new Error(res.statusText);
+      }
+
       showDialog("Wiadomość została wysłana.");
     } catch (error) {
       console.error("Error sending email:", error);
