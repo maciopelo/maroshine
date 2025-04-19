@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import AlertDialog from "./AlertDialog";
-import { LoaderCircle } from "lucide-react";
+import { LoaderCircle, Check } from "lucide-react";
 
 export type FormData = {
   name: string;
@@ -21,7 +21,6 @@ const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
-
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -123,21 +122,11 @@ const ContactForm = () => {
             checked={formData.carbonCopy}
             className="peer hidden"
           />
+
           <div className="w-5 h-5 mr-2 rounded border border-gray-300 flex items-center justify-center cursor-pointer peer-checked:bg-yellow-400 peer-checked:border-yellow-400 transition">
-            <svg
-              className="w-3 h-3 text-white opacity-0 peer-checked:opacity-100 transition-opacity"
-              fill="#fff"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
+            {formData.carbonCopy && <Check className="text-red w-4 h-4" />}
           </div>
+
           <label
             htmlFor="carbonCopy"
             className="text-sm text-gray-700 cursor-pointer select-none"
@@ -147,6 +136,7 @@ const ContactForm = () => {
         </div>
 
         {isError && <p className="text-red-500 text-sm">{isError}</p>}
+
         <button
           type="submit"
           className="bg-black text-white px-6 py-2 rounded hover:bg-gray-800 cursor-pointer w-[100px] flex items-center justify-center"
@@ -158,6 +148,7 @@ const ContactForm = () => {
           )}
         </button>
       </form>
+
       {isDialogOpen && (
         <AlertDialog
           message={alertMessage}
