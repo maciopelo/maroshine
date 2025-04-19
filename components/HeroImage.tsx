@@ -1,13 +1,6 @@
 const HeroImage = () => {
   return (
-    <section
-      className="h-screen bg-fixed bg-center bg-cover flex items-center justify-center text-white"
-      style={{
-        backgroundImage: "url('/images/bmw.jpg')",
-        backgroundColor: "rgba(0, 0, 0, 0.5)",
-        backgroundBlendMode: "overlay",
-      }}
-    >
+    <section className="hero-image h-screen bg-fixed bg-center bg-cover flex items-center justify-center text-white bg-blend-overlay bg-black/50">
       <div className="flex flex-col w-full justify-start p-4 md:p-10">
         <h1 className="flex flex-col text-3xl sm:text-4xl md:text-6xl font-extrabold mb-2 sm:mb-4">
           Mobilna kosmetyka

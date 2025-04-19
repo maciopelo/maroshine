@@ -4,3 +4,13 @@ html {
   background-color: black;
   scroll-behavior: smooth;
 }
+
+.hero-image {
+  background-image: url("/images/bmw-mobile.jpg");
+}
+
+@media (min-width: 768px) {
+  .hero-image {
+    background-image: url("/images/bmw.jpg");
+  }
+}
